@@ -1,4 +1,4 @@
-USE `dwes`;
+USE `froga`
 
 INSERT INTO `tienda` (`cod`, `nombre`, `tlf`) VALUES
 (1, 'CENTRAL', '600100100'),
