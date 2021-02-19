@@ -1,16 +1,14 @@
--- Creamos la base de datos
--- En PhpMyAdmin importamos el fichero
-CREATE DATABASE `dwes` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
-USE `dwes`;
+
+USE `froga`;
 
 -- Creamos las tablas
-CREATE TABLE `dwes`.`tienda` (
+CREATE TABLE `froga`.`tienda` (
 `cod` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `nombre` VARCHAR( 100 ) NOT NULL ,
 `tlf` VARCHAR( 13 ) NULL
 ) ENGINE = INNODB;
 
-CREATE TABLE `dwes`.`producto` (
+CREATE TABLE `froga`.`producto` (
 `cod` VARCHAR( 12 ) NOT NULL ,
 `nombre` VARCHAR( 200 ) NULL ,
 `nombre_corto` VARCHAR( 50 ) NOT NULL ,
@@ -22,13 +20,13 @@ INDEX ( `familia` ) ,
 UNIQUE ( `nombre_corto` )
 ) ENGINE = INNODB;
 
-CREATE TABLE `dwes`.`familia` (
+CREATE TABLE `froga`.`familia` (
 `cod` VARCHAR( 6 ) NOT NULL ,
 `nombre` VARCHAR( 200 ) NOT NULL ,
 PRIMARY KEY ( `cod` )
 ) ENGINE = INNODB;
 
-CREATE TABLE `dwes`.`stock` (
+CREATE TABLE `froga`.`stock` (
 `producto` VARCHAR( 12 ) NOT NULL ,
 `tienda` INT NOT NULL ,
 `unidades` INT NOT NULL ,
@@ -49,8 +47,3 @@ ADD CONSTRAINT `stock_ibfk_1`
 FOREIGN KEY (`producto`) REFERENCES `producto` (`cod`)
 ON UPDATE CASCADE;
 
-CREATE USER `dwes`
-IDENTIFIED BY 'dwes';
-
-GRANT ALL ON `dwes`.*
-TO `dwes`;
